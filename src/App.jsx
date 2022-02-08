@@ -9,7 +9,7 @@ export let loginContext = createContext({});
 function App() {
   let [loading, setLoading] = useState(false);
   let [centerLoading, setCenterLoading] = useState(false);
-  let [login, setLogin] = useState(false);
+  let [login, setLogin] = useState(localStorage.getItem("login") === "true");
   setLoading = useCallback(setLoading, []);
   setCenterLoading = useCallback(setCenterLoading, []);
   setLogin = useCallback(setLogin, []);

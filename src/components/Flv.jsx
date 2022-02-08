@@ -8,8 +8,8 @@ export default memo(function () {
     let videoEl;
     let flvPlayer;
     let isPlay = true;
-    let url =
-        "https://d1--cn-gotcha04.bilivideo.com/live-bvc/501609/live_279409474_19923319_1500.flv?cdn=cn-gotcha04&expires=1644292872&len=0&oi=1785887725&pt=web&qn=150&trid=1000e951ee421628488b9c2d42e9a76a41e8&sigparams=cdn,expires,len,oi,pt,qn,trid&sign=f9bfa1f57ad2d6b05584867bb55fb662&ptype=0&src=9&sl=1&sk=2935686d6cb9146c7a6a6a0b4e120e250342be3df4dc8310261aab0ce9e21e44&order=1";
+    let url = "https://sf1-hscdn-tos.pstatp.com/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-720p.flv";
+    // let url = 'https://i0.hdslb.com/bfs/vc/021028ec922b2527fff2e15ebe5a62da5ed87849.webm'
 
     function initPlay() {
         if (flvjs.isSupported()) {
@@ -55,6 +55,7 @@ export default memo(function () {
                 controls={true}
                 style={{width: "100%", height: "100%", paddingBottom: "3%"}}
                 muted={true}
+                loop={true}
             />
             <Space style={{display: "flex", justifyContent: "space-evenly"}}>
                 <Space>
@@ -66,6 +67,9 @@ export default memo(function () {
                         重置扦样
                     </Button>
                 </Space>
+                {/*<video controls={true} loop={true} muted={true} autoPlay={true}>*/}
+                {/*    <source src={url} type="video/webm"/>*/}
+                {/*</video>*/}
                 <Space>
                     扦样开关：
                     <Switch defaultChecked onChange={begin}/>

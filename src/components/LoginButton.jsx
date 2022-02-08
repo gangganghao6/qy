@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 export default memo(function ({ loginVisible, setLoginVisible, setRegisterVisible, setLogin }) {
   let navigate = useNavigate();
   const onLogin = (values) => {
+    localStorage.setItem("login", "true");
     message.success("登录成功");
     setLogin(true);
     setLoginVisible(false);
-    navigate("/qylist");
+    navigate("/index");
   };
 
   function toRegister() {

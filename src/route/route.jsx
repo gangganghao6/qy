@@ -1,49 +1,64 @@
-import { useRoutes, Routes, Outlet, Navigate } from "react-router-dom";
-import { lazy, Suspense } from "react";
-// import EditQyData from "../components/EditQyData";
-// import Flv from "../components/Flv";
-// import MyTable from "../components/MyTable";
-// import MyInfiniteList from "../components/MyInfiniteList";
+import { useRoutes, Routes, Outlet, Navigate, useNavigate, useLocation } from "react-router-dom";
+import { lazy, Suspense, useContext } from "react";
+import Index from "../components/Index";
+import NotFount from "../components/NotFount";
+import { menus } from "../components/menuList";
 
-let AllRoutes = () => {
+let AllRoutes = ({ setKey }) => {
   const MyTable = lazy(() => import("../components/MyTable"));
   const MyList = lazy(() => import("../components/MyList"));
   const MyInfiniteList = lazy(() => import("../components/MyInfiniteList"));
   const Flv = lazy(() => import("../components/Flv"));
-  const EditQyData = lazy(() => import("../components/EditQyData"));
+  const location = useLocation();
+  let login = localStorage.getItem("login");
+  menus.forEach((menu) => {
+    if ("/" + menu.path === location.pathname) {
+      setKey(menu.id);
+    }
+  });
+  if (login === "false" || login === null) {
+    return useRoutes([
+      {
+        path: "/index",
+        element: <Index />,
+      },
+      {
+        path: "/notfound",
+        element: <NotFount />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/notfound" />,
+      },
+    ]);
+  }
   return useRoutes([
     {
-      path: "/",
-      element: (
-        <>
-          <Outlet />
-        </>
-      ),
-      children: [
-        {
-          path: "/qylist",
-          element: <Suspense fallback={<></>}>{<MyTable />}</Suspense>,
-        },
-        {
-          path: "/userInfo",
-          element: <Suspense fallback={<></>}>{<MyList />}</Suspense>,
-        },
-        {
-          path: "/infinitelist",
-          element: <Suspense fallback={<></>}>{<MyInfiniteList />}</Suspense>,
-        },
-        {
-          path: "/flv",
-          element: <Suspense fallback={<></>}>{<Flv />}</Suspense>,
-        },
-      ],
+      path: "/index",
+      element: <Index />,
+    },
+    {
+      path: "/qylist",
+      element: <Suspense fallback={<></>}>{<MyTable />}</Suspense>,
+    },
+    {
+      path: "/userInfo",
+      element: <Suspense fallback={<></>}>{<MyList />}</Suspense>,
+    },
+    {
+      path: "/log",
+      element: <Suspense fallback={<></>}>{<MyInfiniteList />}</Suspense>,
+    },
+    {
+      path: "/flv",
+      element: <Suspense fallback={<></>}>{<Flv />}</Suspense>,
     },
     {
       path: "*",
-      element: <Navigate to="/qylist" />,
+      element: <Navigate to="/index" />,
     },
   ]);
 };
-export default function GetRoutes() {
-  return <AllRoutes />;
+export default function GetRoutes({ setKey }) {
+  return <AllRoutes setKey={setKey} />;
 }

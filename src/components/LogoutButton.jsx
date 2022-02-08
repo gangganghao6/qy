@@ -6,9 +6,10 @@ export default memo(function ({ login, setLogin }) {
   let navigate = useNavigate();
 
   function logout() {
+    localStorage.setItem("login", "false");
     message.success("已注销");
     setLogin(!login);
-    navigate("/qylist");
+    navigate("/index");
   }
 
   return (

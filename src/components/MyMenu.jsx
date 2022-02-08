@@ -7,9 +7,7 @@ export default memo(function (props) {
   const { setKey } = props;
   return (
     <Menu.Item eventKey={id} icon={icon}>
-      <NavLink to={path} onClick={setKey(id)}>
-        {title}
-      </NavLink>
+      <NavLink to={path}>{title}</NavLink>
     </Menu.Item>
   );
 });

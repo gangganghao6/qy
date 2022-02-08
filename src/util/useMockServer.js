@@ -13,4 +13,11 @@ export default function useMockServer() {
       },
     },
   });
+  createMockServer(RegExp(baseUrl + "log/getData" + ".*"), "get", {
+    data_array_10: {
+      id_id: "",
+      content_cnstring: 30,
+      time_time: "yyyy-MM-dd HH:mm:ss",
+    },
+  });
 }

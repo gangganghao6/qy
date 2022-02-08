@@ -39,10 +39,10 @@ export default memo(function () {
   );
 
   async function getQyTableData(pageNumber = 1) {
-    axios.defaults.baseURL = "http://localhost:3000";
+    axios.defaults.baseURL = "http://localhost:3000/";
     let data;
     try {
-      data = await axios.get("/qy/getData", {
+      data = await axios.get("qy/getData", {
         params: {
           pageNumber,
         },
