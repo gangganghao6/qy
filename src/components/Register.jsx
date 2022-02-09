@@ -107,7 +107,6 @@ export default function CollectionCreateForm({ visible, onRegister, onCancel, to
         >
           <Input.Password />
         </Form.Item>
-
       </Form>
       <Button type="link" onClick={toLogin}>
         已经拥有账号？

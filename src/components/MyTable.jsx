@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useContext, useEffect, useState } from "react";
 import { loadingContext } from "../App";
 import { message, Popconfirm, Space, Table } from "antd";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import EditQyData from "./EditQyData";
 import { requestQyData } from "../util/request";
 

@@ -1,4 +1,3 @@
-
 import React, { memo, useState } from "react";
 
 import { Layout, Menu } from "antd";
@@ -6,7 +5,7 @@ import { Layout, Menu } from "antd";
 import GetRoutes from "../route/route";
 import MyMenu from "./MyMenu";
 
-const {  Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 import Loading from "./Loading";
 import MyHeader from "./MyHeader";
 import { menus } from "./menuList";

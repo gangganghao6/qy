@@ -96,7 +96,7 @@ export async function requestUserInfo(account) {
 
 export async function requestEditUserPassword(account, password) {
   try {
-    let result = await axios.post("qy/editData", {
+    let result = await axios.post("user/editPassword", {
       account,
       password,
     });
