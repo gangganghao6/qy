@@ -9,34 +9,34 @@ export default memo(function ({ loginVisible, setLoginVisible, setRegisterVisibl
   let navigate = useNavigate();
   let { setCenterLoading } = useContext(loadingContext);
   const onLogin = async (values) => {
-    // setCenterLoading(true)
-    // let result = await requestUserLogin(values);
-    // if (result.data.status === 'success') {
-    //     localStorage.setItem("login", "true");
-    //     localStorage.setItem('user', JSON.stringify(data.user))
-    //     message.success("登录成功");
-    //     setLogin(true);
-    //     setLoginVisible(false);
-    //     setCenterLoading(false)
-    //     navigate("/index");
-    // } else {
-    //     setCenterLoading(false)
-    //     message.error(result.data.msg);
-    // }
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        account: "123",
-        email: "530394623@qq.com",
-        companyName: "456",
-        time: "2022-01-05 11:45:26",
-      })
-    );
-    localStorage.setItem("login", "true");
-    message.success("登录成功");
-    setLogin(true);
-    setLoginVisible(false);
-    navigate("/index");
+    setCenterLoading(true)
+    let result = await requestUserLogin(values);
+    if (result.data.status === 'success') {
+        localStorage.setItem("login", "true");
+        localStorage.setItem('user', JSON.stringify(data.user))
+        message.success("登录成功");
+        setLogin(true);
+        setLoginVisible(false);
+        setCenterLoading(false)
+        navigate("/index");
+    } else {
+        setCenterLoading(false)
+        message.error(result.data.msg);
+    }
+    // localStorage.setItem(
+    //   "user",
+    //   JSON.stringify({
+    //     account: "123",
+    //     email: "530394623@qq.com",
+    //     companyName: "456",
+    //     time: "2022-01-05 11:45:26",
+    //   })
+    // );
+    // localStorage.setItem("login", "true");
+    // message.success("登录成功");
+    // setLogin(true);
+    // setLoginVisible(false);
+    // navigate("/index");
   };
 
   function toRegister() {
