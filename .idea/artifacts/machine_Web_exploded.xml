@@ -1,0 +1,42 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="machine:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/machine_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="machine/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="machine" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.3.14" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.3.14" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.7" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.49" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.22" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.14" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.6" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.20" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: org.testng:testng:7.5" />
+          <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.1" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.32" />
+          <element id="library" level="project" name="Maven: com.beust:jcommander:1.78" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery:3.5.1" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.14" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.14" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.13.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.1" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.7" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
