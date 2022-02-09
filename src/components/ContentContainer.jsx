@@ -39,7 +39,7 @@ export default memo(function Test(props) {
             >
                 <div className="logo">
                     <div className={'logobox'} style={{textAlign: "center", verticalAlign: 'center'}}>
-                        <h1 style={{fontSize: '20px', fontWeight: 800}}>豫到好粮管理系统</h1>
+                        <h1 style={{fontSize: '20px', fontWeight: 800, color}}>豫到好粮管理系统</h1>
                     </div>
                 </div>
                 <Menu theme={theme} mode="inline" selectedKeys={[current]}>

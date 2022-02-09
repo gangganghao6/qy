@@ -1,7 +1,7 @@
 import { Descriptions, Space, message } from "antd";
 import EditPasswordButton from "./EditPasswordButton";
 import { useContext, useEffect, useState } from "react";
-import { requestUserInfo } from "../util/request";
+import { requestUserInfo } from "../util/request.js";
 import { loadingContext } from "../App";
 
 export default function () {

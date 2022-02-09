@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { List, message } from "antd";
 import { loadingContext } from "../App";
-import { requestLogData } from "../util/request";
+import { requestLogData } from "../util/request.js";
 
 export default () => {
   let { setCenterLoading, setLoading } = useContext(loadingContext);

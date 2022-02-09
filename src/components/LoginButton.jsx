@@ -2,27 +2,27 @@ import { Button, message } from "antd";
 import { memo, useContext, useState } from "react";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
-import { requestUserLogin } from "../util/request";
+import { requestUserLogin } from "../util/request.js";
 import { loadingContext } from "../App";
 
 export default memo(function ({ loginVisible, setLoginVisible, setRegisterVisible, setLogin }) {
   let navigate = useNavigate();
   let { setCenterLoading } = useContext(loadingContext);
   const onLogin = async (values) => {
-    // setCenterLoading(true)
-    // let result = await requestUserLogin(values);
-    // if (result.status === 'success') {
-    //     localStorage.setItem("login", "true");
-    //     localStorage.setItem('user', JSON.stringify(data.user))
-    //     message.success("登录成功");
-    //     setLogin(true);
-    //     setLoginVisible(false);
-    //     setCenterLoading(false)
-    //     navigate("/index");
-    // } else {
-    //     setCenterLoading(false)
-    //     message.error(result.msg);
-    // }
+      // setCenterLoading(true)
+      // let result = await requestUserLogin(values);
+      // if (result.status === 'success') {
+      //     localStorage.setItem("login", "true");
+      //     localStorage.setItem('user', JSON.stringify(data.user))
+      //     message.success("登录成功");
+      //     setLogin(true);
+      //     setLoginVisible(false);
+      //     setCenterLoading(false)
+      //     navigate("/index");
+      // } else {
+      //     setCenterLoading(false)
+      //     message.error(result.msg);
+      // }
     localStorage.setItem(
       "user",
       JSON.stringify({

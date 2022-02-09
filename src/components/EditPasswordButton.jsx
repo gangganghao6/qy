@@ -3,7 +3,7 @@ import { memo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EditPassword from "./EditPassword";
 import { loadingContext } from "../App";
-import { requestEditUserPassword } from "../util/request";
+import { requestEditUserPassword } from "../util/request.js";
 
 export default memo(function ({ editVisible, setEditVisible }) {
   let navigate = useNavigate();

@@ -1,7 +1,7 @@
 import { Button, message } from "antd";
 import { useContext } from "react";
 import Register from "./Register";
-import { requestUserRegister } from "../util/request";
+import { requestUserRegister } from "../util/request.js";
 import { loadingContext } from "../App";
 
 export default function ({ registerVisible, setRegisterVisible, setLoginVisible }) {

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import TimeSelect from "./TimeSelect";
 import NumberSelect from "./NumberSelect";
 import { loadingContext } from "../App";
-import { requestEditQyData } from "../util/request";
+import { requestEditQyData } from "../util/request.js";
 
 export default memo(function (props) {
   let navigate = useNavigate();

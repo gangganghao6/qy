@@ -3,7 +3,7 @@ import { loadingContext } from "../App";
 import { message, Popconfirm, Space, Table } from "antd";
 import { useNavigate } from "react-router-dom";
 import EditQyData from "./EditQyData";
-import { requestQyData } from "../util/request";
+import { requestQyData } from "../util/request.js";
 
 const { Column, ColumnGroup } = Table;
 
