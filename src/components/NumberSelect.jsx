@@ -1,10 +1,6 @@
 import { InputNumber } from "antd";
 import { memo } from "react";
 
-function onChange(value) {
-  console.log("changed", value);
-}
-
 export default memo(function (props) {
   let { x, y } = props.coordinate;
   let { setCoordinate } = props;

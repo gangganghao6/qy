@@ -1,21 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { Avatar, Button, List, Skeleton } from "antd";
+import { List, message } from "antd";
 import { loadingContext } from "../App";
-import Loading from "./Loading";
-import axios from "axios";
+import { requestLogData } from "../util/request";
 
 export default () => {
   let { setCenterLoading, setLoading } = useContext(loadingContext);
   const [list, setList] = useState([]);
-  const requestList = async (x) => {
-    axios.defaults.baseURL = "http://localhost:3000/";
-    let data = await axios.get("log/getData", {
-      params: {
-        pageNumber: 1,
-      },
-    });
-    setList(list.concat(data.data.data));
+  let hasMore = true;
+  let pageNumber = 0;
+  const requestList = async () => {
+    pageNumber++;
+    setLoading(true);
+    let data = await requestLogData(pageNumber);
+    if (data.status === "success") {
+      setList(list.concat(data.data));
+      hasMore = data.hasMore;
+      setLoading(false);
+    } else {
+      setLoading(false);
+      message.error(data.msg);
+    }
   };
   useEffect(() => {
     requestList().then();
@@ -26,7 +31,7 @@ export default () => {
         dataLength={list.length}
         next={requestList}
         hasMore={true}
-        loader={<Skeleton paragraph={{ rows: 3 }} active />}
+        loader={<></>}
         endMessage={
           <p style={{ textAlign: "center" }}>
             <b>Yay! You have seen it all</b>

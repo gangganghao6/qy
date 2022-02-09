@@ -1,5 +1,5 @@
-import { useRoutes, Routes, Outlet, Navigate, useNavigate, useLocation } from "react-router-dom";
-import { lazy, Suspense, useContext } from "react";
+import { useRoutes, Navigate, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Index from "../components/Index";
 import NotFount from "../components/NotFount";
 import { menus } from "../components/menuList";

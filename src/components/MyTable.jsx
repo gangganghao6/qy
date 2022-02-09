@@ -1,9 +1,9 @@
-import React, { createContext, memo, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { loginContext, loadingContext } from "../App";
-import { message, Popconfirm, Space, Table, Tag } from "antd";
-import axios from "axios";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import React, { memo, useCallback, useContext, useEffect, useState } from "react";
+import { loadingContext } from "../App";
+import { message, Popconfirm, Space, Table } from "antd";
+import {  useNavigate } from "react-router-dom";
 import EditQyData from "./EditQyData";
+import { requestQyData } from "../util/request";
 
 const { Column, ColumnGroup } = Table;
 
@@ -14,7 +14,7 @@ function confirm(navigate) {
   };
 }
 
-function cancel(navigate) {
+function cancel() {
   return function () {
     message.info("You canceled to delete").then();
   };
@@ -23,9 +23,8 @@ function cancel(navigate) {
 export default memo(function () {
   let navigate = useNavigate();
   let { setCenterLoading } = useContext(loadingContext);
-  let { login } = useContext(loginContext);
 
-  let [data, setData] = useState([]);
+  let [data, setData] = useState({});
   let [record, setRecord] = useState({});
   let [isShow, setIsShow] = useState(false);
   setRecord = useCallback(setRecord, [record]);
@@ -39,26 +38,21 @@ export default memo(function () {
   );
 
   async function getQyTableData(pageNumber = 1) {
-    axios.defaults.baseURL = "http://localhost:3000/";
-    let data;
-    try {
-      data = await axios.get("qy/getData", {
-        params: {
-          pageNumber,
-        },
-      });
-    } catch (e) {
-      console.log(e);
-    }
-    return data.data.data;
+    let data = await requestQyData(pageNumber);
+    return data;
   }
 
   async function loadingData(pageNumber = { current: 1 }) {
     let { current } = pageNumber;
     setCenterLoading(true);
     let data = await getQyTableData(current);
-    setData(data);
-    setCenterLoading(false);
+    if (data.status === "success") {
+      setData(data.data);
+      setCenterLoading(false);
+    } else {
+      setCenterLoading(false);
+      message.error(data.msg);
+    }
   }
 
   function edit(records) {

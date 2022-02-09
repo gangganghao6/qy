@@ -1,4 +1,3 @@
-// @ts-ignore
 import Mock from "mockjs";
 
 const kinds = [

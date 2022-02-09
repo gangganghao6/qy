@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Modal, Form, Input, Radio } from "antd";
+import React from "react";
+import { Button, Modal, Form, Input } from "antd";
 
 export default function CollectionCreateForm({ visible, onLogin, onCancel, toRegister }) {
   const [form] = Form.useForm();

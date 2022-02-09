@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Button, Modal, Form, Input, Radio } from "antd";
+import React from "react";
+import { Modal, Form, Input } from "antd";
 
 export default function CollectionCreateForm({ visible, onEdit, onCancel }) {
   const [form] = Form.useForm();
@@ -62,6 +62,14 @@ export default function CollectionCreateForm({ visible, onEdit, onCancel }) {
               required: true,
               message: "Please confirm the new password",
             },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("newPassword") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error("The two passwords that you entered do not match!"));
+              },
+            }),
           ]}
         >
           <Input.Password />

@@ -1,18 +1,30 @@
 import { Button, message } from "antd";
-import { useState } from "react";
+import { useContext } from "react";
 import Register from "./Register";
+import { requestUserRegister } from "../util/request";
+import { loadingContext } from "../App";
 
 export default function ({ registerVisible, setRegisterVisible, setLoginVisible }) {
-  // const [visible, setVisible] = useState( false);
-  const onRegister = (values) => {
-    message.success("注册成功");
-    setRegisterVisible(false);
-    setLoginVisible(true);
+  let { setCenterLoading } = useContext(loadingContext);
+  const onRegister = async (values) => {
+    setCenterLoading(true);
+    let data = await requestUserRegister(values);
+    if (data.status === "success") {
+      message.success("注册成功");
+      setRegisterVisible(false);
+      setLoginVisible(true);
+      setCenterLoading(false);
+    } else {
+      setCenterLoading(false);
+      message.error(data.msg);
+    }
   };
+
   function toLogin() {
     setRegisterVisible(false);
     setLoginVisible(true);
   }
+
   return (
     <div>
       <Button

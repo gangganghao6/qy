@@ -1,8 +1,7 @@
-import { Button, message, Result } from "antd";
+import { Button, Result } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export default function () {
-  // message.error('您尚未登录')
   let navigate = useNavigate();
   function back() {
     navigate("/index");

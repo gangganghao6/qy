@@ -1,5 +1,5 @@
-import React, { memo, useState } from "react";
-import { DatePicker, TimePicker, Select, Space } from "antd";
+import React, { memo } from "react";
+import { DatePicker, TimePicker, Space } from "antd";
 import moment from "moment";
 
 function PickerWithType({ type, onChange, time }) {

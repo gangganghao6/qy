@@ -7,9 +7,8 @@ export default memo(function () {
   let { loading } = useContext(loadingContext);
   return (
     <>
-      <Skeleton loading={loading} active></Skeleton>
-      <Skeleton loading={loading} active></Skeleton>
-      <Skeleton loading={loading} active></Skeleton>
+      <Skeleton loading={loading} active />
+      <Skeleton loading={loading} active />
     </>
   );
 });

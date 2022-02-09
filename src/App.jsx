@@ -1,7 +1,7 @@
-import { createContext, useCallback, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 import "./App.css";
 import ContentContainer from "./components/ContentContainer.jsx";
-import { Alert, Space, Spin } from "antd";
+import { Spin } from "antd";
 
 export let loadingContext = createContext({});
 export let loginContext = createContext({});
@@ -21,8 +21,8 @@ function App() {
           <ContentContainer />
         </loadingContext.Provider>
       </loginContext.Provider>
-      <div className={"loading"} style={centerLoading ? { display: "flex" } : { display: "none" }}>
-        <Spin size="large" spinning={centerLoading}></Spin>
+      <div className={"loading"} style={centerLoading ? { display: "flex", zIndex: 1001 } : { display: "none" }}>
+        <Spin size="large" spinning={centerLoading} />
       </div>
     </div>
   );

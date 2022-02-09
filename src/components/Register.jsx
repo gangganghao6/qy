@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Button, Modal, Form, Input, Radio } from "antd";
+import React from "react";
+import { Button, Modal, Form, Input } from "antd";
 import "./Register.css";
+
 export default function CollectionCreateForm({ visible, onRegister, onCancel, toLogin }) {
   const [form] = Form.useForm();
   return (
@@ -47,7 +48,12 @@ export default function CollectionCreateForm({ visible, onRegister, onCancel, to
         <Form.Item
           name="email"
           label="邮箱"
+          hasFeedback={true}
           rules={[
+            {
+              type: "email",
+              message: "Not valid email",
+            },
             {
               required: true,
               message: "Please input the email",
@@ -81,24 +87,27 @@ export default function CollectionCreateForm({ visible, onRegister, onCancel, to
           <Input.Password />
         </Form.Item>
         <Form.Item
-          name="passwordconfirm"
+          name="passwordConfirm"
           label="确认密码"
+          hasFeedback={true}
           rules={[
             {
               required: true,
               message: "Please input the password again",
             },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue("password") === value) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(new Error("The two passwords that you entered do not match!"));
+              },
+            }),
           ]}
         >
           <Input.Password />
         </Form.Item>
 
-        {/*<Form.Item name="modifier" className="collection-create-form_last-form-item">*/}
-        {/*    <Radio.Group>*/}
-        {/*        <Radio value="public">Public</Radio>*/}
-        {/*        <Radio value="private">Private</Radio>*/}
-        {/*    </Radio.Group>*/}
-        {/*</Form.Item>*/}
       </Form>
       <Button type="link" onClick={toLogin}>
         已经拥有账号？

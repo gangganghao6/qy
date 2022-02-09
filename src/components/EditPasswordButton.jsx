@@ -1,16 +1,25 @@
 import { Button, message } from "antd";
-import { memo, useState } from "react";
-import Login from "./Login";
+import { memo, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EditPassword from "./EditPassword";
+import { loadingContext } from "../App";
+import { requestEditUserPassword } from "../util/request";
 
 export default memo(function ({ editVisible, setEditVisible }) {
   let navigate = useNavigate();
-  const onEdit = (values) => {
-    console.log(values);
-    message.success("修改成功");
-    setEditVisible(false);
-    navigate("/userInfo");
+  let { setCenterLoading } = useContext(loadingContext);
+  const onEdit = async ({ oldPassword, newPassword }) => {
+    setCenterLoading(true);
+    let data = await requestEditUserPassword(oldPassword, newPassword);
+    if (data.status === "success") {
+      setCenterLoading(false);
+      message.success("修改成功");
+      setEditVisible(false);
+      navigate("/userInfo");
+    } else {
+      setCenterLoading(false);
+      message.error(data.msg);
+    }
   };
 
   return (

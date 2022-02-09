@@ -1,5 +1,4 @@
-import { Carousel, Space } from "antd";
-// import './PPT.css'
+import { Carousel } from "antd";
 const contentStyle = {
   height: "200px",
   color: "#fff",

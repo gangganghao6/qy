@@ -1,23 +1,32 @@
-import React, { createContext, memo, useCallback, useEffect, useState } from "react";
-import { Modal, Button, message } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { memo, useCallback, useContext, useEffect, useState } from "react";
+import { Modal, message } from "antd";
+import { useNavigate } from "react-router-dom";
 import TimeSelect from "./TimeSelect";
 import NumberSelect from "./NumberSelect";
+import { loadingContext } from "../App";
+import { requestEditQyData } from "../util/request";
 
 export default memo(function (props) {
-  // let location = useLocation();
-  // let {state = undefined} = location;
   let navigate = useNavigate();
   let { record, setIsShow } = props;
   let [time, setTime] = useState(record.time);
   let [coordinate, setCoordinate] = useState({ x: record.x, y: record.y });
+  let { setCenterLoading } = useContext(loadingContext);
 
   setTime = useCallback(setTime, [time]);
   setCoordinate = useCallback(setCoordinate, [coordinate]);
-  const handleOk = () => {
-    setIsShow(false);
-    message.info("修改成功");
-    navigate("/table", { replace: true });
+  const handleOk = async () => {
+    setCenterLoading(true);
+    let data = await requestEditQyData({ id: record.id, time, ...coordinate });
+    if (data.status === "success") {
+      setCenterLoading(false);
+      message.info("修改成功");
+      setIsShow(false);
+      navigate("/qylist", { replace: true });
+    } else {
+      setCenterLoading(false);
+      message.error(data.msg);
+    }
   };
 
   const handleCancel = () => {
