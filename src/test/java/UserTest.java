@@ -16,7 +16,7 @@ public class UserTest {
 
     @Test
     public void fun1(){
-        User user=new User("1","1","1","1","1");
+        User user=new User();
         userMapper.addUser(user);
     }
 }
