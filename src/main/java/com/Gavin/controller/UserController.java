@@ -36,7 +36,6 @@ public class UserController {
     @PostMapping("/register")
     @ResponseBody
     public Data register(User user){
-        System.out.println("run register");
         user.setTime(TimeUtil.getlocaltime());
         user.setId(IdUtil.getUUId());
         User user1=userService.findUserByAccount(user.getAccount());

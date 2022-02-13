@@ -14,6 +14,7 @@ public class Machinedata implements Serializable {
   private String id;
   private double X;
   private double Y;
+  private double z;
   private String time;
 
 }

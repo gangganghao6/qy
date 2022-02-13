@@ -10,8 +10,8 @@
     </select>
 
     <insert id="addUser" parameterType="com.Gavin.bean.User">
-        insert into user(id,account,password,email,companyname)
-        values(#{id},#{account},#{password},#{email},#{companyname})
+        insert into user(id,account,password,email,companyname,time)
+        values(#{id},#{account},#{password},#{email},#{companyname},#{time})
     </insert>
 
     <update id="updateUserByAccount" parameterType="com.Gavin.bean.User">
