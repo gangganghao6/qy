@@ -1,12 +1,14 @@
 import axios from "axios";
+import qs from 'qs'
 // axios.defaults.baseURL='https://localhost:3000/'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 axios.defaults.baseURL = "/api/";
 axios.defaults.timeout = 1000;
 axios.defaults.withCredentials = true;
 
 export async function requestUserLogin(values) {
   try {
-    let result = await axios.post("user/login", values);
+    let result = await axios.post("user/login", qs.stringify(values),);
     return result.data;
   } catch (e) {
     console.log(e);
@@ -19,7 +21,7 @@ export async function requestUserLogin(values) {
 
 export async function requestUserRegister(values) {
   try {
-    let result = await axios.post("user/register", values);
+    let result = await axios.post("user/register", qs.stringify(values));
     return result.data;
   } catch (e) {
     console.log(e);
@@ -49,7 +51,7 @@ export async function requestQyData(pageNumber) {
 
 export async function requestEditQyData(obj) {
   try {
-    let result = await axios.post("qy/editData", obj);
+    let result = await axios.post("qy/editData", qs.stringify(obj));
     return result.data;
   } catch (e) {
     console.log(e);
@@ -96,10 +98,11 @@ export async function requestUserInfo(account) {
 
 export async function requestEditUserPassword(account, password) {
   try {
-    let result = await axios.post("user/editPassword", {
+    let result = await axios.post("user/editPassword", qs.stringify({
       account,
       password,
-    });
+    }));
+    console.log(result)
     return result.data;
   } catch (e) {
     console.log(e);

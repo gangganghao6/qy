@@ -10,7 +10,7 @@ export default memo(function (props) {
   let navigate = useNavigate();
   let { record, setIsShow } = props;
   let [time, setTime] = useState(record.time);
-  let [coordinate, setCoordinate] = useState({ x: record.x, y: record.y });
+  let [coordinate, setCoordinate] = useState({ x: record.x, y: record.y,z:record.z });
   let { setCenterLoading } = useContext(loadingContext);
 
   setTime = useCallback(setTime, [time]);

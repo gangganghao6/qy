@@ -1,14 +1,14 @@
-import React, {memo, useState} from "react";
+import React, {memo, useContext, useState} from "react";
 
 import {Layout, Menu} from "antd";
 
-import GetRoutes from "../route/route";
 import MyMenu from "./MyMenu";
 
 const {Sider, Content} = Layout;
 import Loading from "./Loading";
 import MyHeader from "./MyHeader";
 import {menus} from "./menuList";
+import AllRoutes from "../route/route";
 
 export default memo(function Test(props) {
     let [current, setCurrent] = useState("1");
@@ -57,7 +57,7 @@ export default memo(function Test(props) {
                         padding: 10,
                     }}
                 >
-                    <GetRoutes setKey={setKey}/>
+                    <AllRoutes setKey={setKey}/>
                     <Loading/>
                 </Content>
             </Layout>

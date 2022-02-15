@@ -46,8 +46,9 @@ export default memo(function () {
     let { current } = pageNumber;
     setCenterLoading(true);
     let data = await getQyTableData(current);
-    if (data.status === "success") {
-      setData(data.data);
+    console.log(data)
+    if (data.total!==0) {
+      setData(data);
       setCenterLoading(false);
     } else {
       setCenterLoading(false);
@@ -68,7 +69,7 @@ export default memo(function () {
   return (
     <>
       <Table
-        dataSource={data.data}
+        dataSource={data.machinedata}
         pagination={{ total: data.total }}
         scroll={{ y: window.innerHeight - 310 }}
         onChange={loadingData}
@@ -77,6 +78,7 @@ export default memo(function () {
         <ColumnGroup title="坐标">
           <Column title="X" dataIndex="x" key="x" />
           <Column title="Y" dataIndex="y" key="y" />
+          <Column title="Z" dataIndex="z" key="z" />
         </ColumnGroup>
         <Column
           title="日期"

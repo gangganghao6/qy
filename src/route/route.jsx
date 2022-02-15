@@ -3,12 +3,12 @@ import { lazy, Suspense } from "react";
 import Index from "../components/Index";
 import NotFount from "../components/NotFount";
 import { menus } from "../components/menuList";
+import MyTable from "../components/MyTable";
+import MyList from "../components/MyList";
+import MyInfiniteList from "../components/MyInfiniteList";
+import Flv from "../components/Flv";
 
 let AllRoutes = ({ setKey }) => {
-  const MyTable = lazy(() => import("../components/MyTable"));
-  const MyList = lazy(() => import("../components/MyList"));
-  const MyInfiniteList = lazy(() => import("../components/MyInfiniteList"));
-  const Flv = lazy(() => import("../components/Flv"));
   const location = useLocation();
   let login = localStorage.getItem("login");
   menus.forEach((menu) => {
@@ -59,6 +59,4 @@ let AllRoutes = ({ setKey }) => {
     },
   ]);
 };
-export default function GetRoutes({ setKey }) {
-  return <AllRoutes setKey={setKey} />;
-}
+export default AllRoutes;
