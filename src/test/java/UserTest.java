@@ -4,6 +4,7 @@ import com.Gavin.config.SpringConfig;
 import com.Gavin.mapper.QyMapper;
 import com.Gavin.mapper.UserMapper;
 import com.Gavin.service.QyService;
+import com.Gavin.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +24,17 @@ public class UserTest {
     @Autowired
     private QyService qyService;
 
+    @Autowired
+    private UserService userService;
+
     @Test
     public void fun1(){
-        User user=new User();
+        User user=new User("9","9","9","9","9","9");
         userMapper.addUser(user);
     }
 
     @Test
     public void fun2(){
-        List<Machinedata> list=qyService.selectByPage(1,2);
-        System.out.println(list);
+        userService.updateUserByAccount("gavin","1234");
     }
 }

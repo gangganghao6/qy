@@ -62,6 +62,7 @@ public class UserController {
         if (user==null)
             return new Data("failed","无该账号",null);
         user.setPassword(password);
+        userService.updateUserByAccount(account,password);
         return new Data("success","修改成功",user);
     }
 

@@ -28,7 +28,7 @@ public class SpringConfig {
         properties.load(SpringConfig.class.getClassLoader().getResourceAsStream("druid.properties"));
         dataSource.setUsername("root");
         dataSource.setPassword("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/machine");
+        dataSource.setUrl("jdbc:mysql://39.105.105.42:3306/machine");
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         return dataSource;
     }
