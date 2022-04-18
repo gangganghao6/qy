@@ -15,6 +15,6 @@
     </insert>
 
     <update id="updateUserByAccount" parameterType="com.Gavin.bean.User">
-        UPDATE user SET password=#{password}
+        UPDATE user SET password=#{param2} where account=#{param1}
     </update>
 </mapper>

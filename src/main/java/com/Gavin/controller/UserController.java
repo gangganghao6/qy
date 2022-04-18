@@ -41,7 +41,7 @@ public class UserController {
         User user1=userService.findUserByAccount(user.getAccount());
         if (user1==null){
             userService.addUser(user);
-            return new Data("success","登陆成功",null);
+            return new Data("success","注册成功",null);
         }
             return new Data("failed","用户名已存在！",null);
     }
