@@ -102,6 +102,14 @@
             <artifactId>servlet-api-2.5</artifactId>
             <version>6.1.7</version>
         </dependency>
+        <!--视频流所需jar包-->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+
+
     </dependencies>
     <!--mapper接口与mapper的xml文件放在了同路径，所以要把指定包下的配置文件也放在类路径下-->
     <build>

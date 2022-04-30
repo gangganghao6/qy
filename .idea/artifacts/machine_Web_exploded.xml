@@ -35,6 +35,33 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.13.1" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.1" />
           <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api-2.5:6.1.7" />
+          <element id="library" level="project" name="Maven: org.bytedeco:javacv:1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco:javacpp:1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:opencv:3.4.3-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:flycapture:2.11.3.121-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:libdc1394:2.2.5-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:libfreenect:0.5.3-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:libfreenect2:0.2.0-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:librealsense:1.12.1-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:videoinput:0.200-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:artoolkitplus:2.3.1-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:flandmark:1.07-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:leptonica:1.76.0-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:tesseract:4.0.0-rc2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg-platform:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:android-arm:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:android-arm64:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:android-x86:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:android-x86_64:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:linux-x86:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:linux-x86_64:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:linux-armhf:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:linux-ppc64le:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:macosx-x86_64:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:windows-x86:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: org.bytedeco.javacpp-presets:ffmpeg:windows-x86_64:4.0.2-1.4.3" />
+          <element id="library" level="project" name="Maven: com.github.hoary.ffmpeg:FFmpeg-windows-x86_64:2.0.1.1" />
         </element>
       </element>
     </root>
