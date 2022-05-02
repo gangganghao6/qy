@@ -64,7 +64,7 @@ public class UserTest {
 
     @Test
     public void TestRTMPPusher() throws Exception {
-            String url="rtmp://127.0.0.1/live/stream";
+            String url="rtmp://127.0.0.1/live/home";
             Pusher pusher = new Pusher(url);
             CanvasFrame cf = Windows.build("测试RTMP推流", w -> {
                 System.out.println("窗口已关闭！");
