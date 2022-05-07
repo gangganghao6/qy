@@ -6,7 +6,6 @@ import com.Gavin.mapper.UserMapper;
 import com.Gavin.service.QyService;
 import com.Gavin.service.UserService;
 import com.Gavin.util.Windows;
-import com.Gavin.video.Pusher;
 import org.bytedeco.javacv.CanvasFrame;
 import org.bytedeco.javacv.FrameGrabber;
 import org.bytedeco.javacv.OpenCVFrameGrabber;
@@ -33,16 +32,6 @@ public class UserTest {
     @Autowired
     private UserService userService;
 
-    @Test
-    public void fun1(){
-        User user=new User("9","9","9","9","9","9");
-        userMapper.addUser(user);
-    }
-
-    @Test
-    public void fun2(){
-        userService.updateUserByAccount("gavin","1234");
-    }
 
     @Test
     public void grabcamera() throws FrameGrabber.Exception {
@@ -62,23 +51,7 @@ public class UserTest {
     }
 
 
-    @Test
-    public void TestRTMPPusher() throws Exception {
-            String url="rtmp://127.0.0.1/live/home";
-            Pusher pusher = new Pusher(url);
-            CanvasFrame cf = Windows.build("测试RTMP推流", w -> {
-                System.out.println("窗口已关闭！");
-                try {
-                    pusher.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
-            pusher.push(f -> {
-            cf.showImage(f);
-        });
-            pusher.start();
-    }
+
 
 
 
